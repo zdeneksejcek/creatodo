@@ -1,0 +1,44 @@
+﻿### GET request to get all todo states
+GET http://localhost:8787/api/states
+Authorization: Basic dXNlcjEyMzpwYXNzd29yZDEyMw==
+
+###
+
+### GET all todos including all deleted ones
+GET http://localhost:8787/api/todos
+Authorization: Basic dXNlcjEyMzpwYXNzd29yZDEyMw==
+
+### POST new todo
+POST http://localhost:8787/api/todos
+Content-Type: application/json
+Authorization: Basic dXNlcjEyMzpwYXNzd29yZDEyMw==
+
+{
+  "title": "First todo",
+  "dueDate": "2024-12-31"
+}
+###
+
+### PUT update todo with id 2
+PUT http://localhost:8787/api/todos/2
+Content-Type: application/json
+Authorization: Basic dXNlcjEyMzpwYXNzd29yZDEyMw==
+
+{
+    "title": "Updated first todo",
+    "dueDate": "2025-01-15",
+    "stateId": 2
+}
+###
+
+### PUT update todo with id 2 to soft-deleted state
+PUT http://localhost:8787/api/todos/4
+Content-Type: application/json
+Authorization: Basic dXNlcjEyMzpwYXNzd29yZDEyMw==
+
+{
+  "title": "Delete todo",
+  "dueDate": "2025-01-15",
+  "stateId": 5
+}
+###
